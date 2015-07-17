@@ -30,7 +30,12 @@ app.get('/student_names',function(req,res) {
     conn.connect();
     conn.query('select * from student_name', function(err, rows, fields) {
         if (err) throw err;
-        res.send(rows);
+        //res.send(rows);
+        res.send({
+            state:'1',
+            data:rows,
+            information:""
+        })
     });
     conn.end();
 });
@@ -47,7 +52,6 @@ app.delete('/student_name', function(req, res) {
 
 app.post('/table', function(req, res) {
    var name = req.body.name;
-   console.log(name);
    var conn = createConnection();
    conn.connect();
    conn.query('insert into student_name(name) values("'+name+'")', function(err, results) {
