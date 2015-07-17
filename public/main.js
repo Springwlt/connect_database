@@ -1,6 +1,6 @@
-function dataPrinter(data) {
+function dataPrinter(result) {
    $('#table').empty();
-   data.forEach(function(ele) {
+   result.data.forEach(function(ele) {
        $("<tr><td>" + ele.id + "</td><td>" + ele.name + "</td><td>" + "<button type='button' class='btn btn-primary' id=" + ele.id + " >" + "删除" + "</button>" + "</td></tr>").appendTo("#table");
    })
 }
